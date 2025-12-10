@@ -11,6 +11,7 @@
 #include <direct.h>
 #else
 #include <sys/stat.h>
+#include <sys/types.h>
 #endif
 
 using namespace taichi;
@@ -285,7 +286,24 @@ int main() {
 
 
 
-/* Compilation command (ensure that taichi.h is in the same directory):
-g++ dambreak_stationary_obstacle.cpp -o dambreak_stationary_obstacle.exe -std=c++14 -O3 -lgdi32 -fopenmp
-.\dambreak_stationary_obstacle.exe
-*/
+
+/* ==========================================
+   Cross-Platform Compilation Commands (ensure that taichi.h is in the same directory)
+==========================================
+
+1. Windows (MinGW/GCC):
+   g++ dambreak_stationary_obstacle.cpp -o dambreak_stationary_obstacle.exe -std=c++14 -O3 -lgdi32 -fopenmp
+
+2. Linux (Ubuntu/Debian etc.):
+   # Requires: sudo apt-get install libx11-dev
+   g++ dambreak_stationary_obstacle.cpp -o dambreak_stationary_obstacle -std=c++14 -O3 -lX11 -lpthread -fopenmp
+
+3. macOS (Clang):
+   # Requires: brew install libomp
+   g++ dambreak_stationary_obstacle.cpp -o dambreak_stationary_obstacle -std=c++14 -O3 -Xpreprocessor -fopenmp -lomp -framework Cocoa -framework CoreGraphics
+
+.\dambreak_stationary_obstacle.exe   
+
+   */
+
+ 
