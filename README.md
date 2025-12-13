@@ -66,7 +66,7 @@ $$
 
 Where:
 * $K$: The bulk modulus (controls incompressibility), set to $K=50.0$ in code.
-* $J$: The determinant of the deformation gradient $\mathbf{F}$ ($J = \det(\mathbf{F})$). It represents the **volume ratio** ($J = \frac{V_{\text{current}}}{V_{\text{initial}}}$).
+* $J$: The determinant of the deformation gradient $\mathbf{F}$ ( $J = \det(\mathbf{F})$ ). It represents the **volume ratio** ( $J = \frac{V_{\text{current}}}{V_{\text{initial}}}$ ).
     * $J < 1$ indicates compression (density increases).
     * $J = 1$ indicates no volume change.
 * $\gamma$: The stiffness parameter, set to $\gamma=7.0$ in code.
