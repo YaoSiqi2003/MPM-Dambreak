@@ -136,3 +136,40 @@ $$
 ---
 
 ## 4. Coulomb Friction Model
+
+To handle the interaction between the water and the rigid body, we implement a **Coulomb Friction model** in the grid update process.
+
+
+First, compute the relative velocity of grid node w.r.t rigid body (obstacle)
+
+$$
+\mathbf{v}_{\text{rel}} = \mathbf{v}_{\text{grid}} - \mathbf{v}_{\text{obs}}
+$$
+
+
+The normal component of relative velocity is given by
+
+$$
+n = \mathbf{v}_{\text{rel}} \cdot \mathbf{v}_{\text{normal}}
+$$
+
+where $\mathbf{v}_{\text{normal}}$ is the surface normal vector.
+
+If $n < 0$, then fluid is moving into the obstacle, we can thus compute tangential velocity and alter its value
+
+
+$$
+\mathbf{v}_{t} = \mathbf{v}_{\text{rel}} - \mathbf{v}_{\text{normal}} \cdot n, \mathbf{v}_{\text{new\\_rel}} = \mathbf{v}_{t} \cdot \mu
+$$
+
+where $\mu = 0$ stands for complete sticky, and $\mu = 1$ stands for complete slippery. We set $\mu = 0.5$ in code.
+
+Finally, covert back to world velocity
+
+$$
+\mathbf{v}_{\text{new}} = \mathbf{v}_{\text{new\\_rel}} + \mathbf{v}_{\text{obs}}
+$$
+
+ 
+
+---
