@@ -47,7 +47,8 @@ $$
 w_{ip} =: N_{i}(\mathbf{x}_p)=N(x)N(y)N(z)
 $$
 
-where $x,y,z$ are the normalized distances to $\mathbf{x}_i$ in each dimention, and $N$ is the Quadratic B-spline function
+where $x,y,z$ are the normalized distances to $\mathbf{x}_i$ in each dimention, and $N$ is the Quadratic B-spline function (***[The Material Point Method for Simulating
+Continuum Materials](https://dl.acm.org/doi/pdf/10.1145/2897826.2927348?casa_token=q5jsi9S16bEAAAAA:sbCHMJKA3o7m2RrqBKSGUW20XpFLz_Qpa6fxxRTwjVvziraKjb9c8vZCBJvYBAsLz9BHvwdVqBAt3lg)***, Eq.(123))
 
 $$
 N(x) = \begin{cases} 
