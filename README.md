@@ -206,7 +206,7 @@ $$
 $$
 
  
- Note that this is **explicit time integration**, in contrast to **semi-implicit integration** in ***[A Material Point Method for Snow Simulation](https://dl.acm.org/doi/pdf/10.1145/2461912.2461948)***.
+ Note that this is **explicit time integration**, in contrast to **semi-implicit integration** in ***[A Material Point Method for Snow Simulation](https://dl.acm.org/doi/pdf/10.1145/2461912.2461948)***. Also, gravity is omitted for simplicity, since its update is straghtforward and handled separately.
 
 In code, we replaced First Piola-Kirchhoff stress with Cauchy stress using the relationship
 
