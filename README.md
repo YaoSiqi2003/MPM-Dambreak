@@ -144,6 +144,40 @@ $$
 
 
 
+For alternative derivation of force expression, assume a deformation gradient based hyperelastic energy density. The total elastic potential energy is then
+
+$$
+e = \sum_p V_p^0 \Psi_p(\mathbf{F}_p),  
+$$
+
+
+
+Nodal elastic force is the negative gradient of the total potential energy evaluated at nodal positions. Using Equation $\mathbf{F}_p(\mathbf{x}) = \left( \mathbf{I} + \sum_i (\mathbf{x}_i - \mathbf{x}\_i^n)(\nabla w\_{ip}^n)^T \right) \mathbf{F}_p^n$, the MPM spatial discretization of the stress-based forces is given as
+
+$$
+\mathbf{f}_i(\mathbf{x}) = -\frac{\partial e}{\partial \mathbf{x}_i}(\mathbf{x}) = -\sum_p V_p^0 \left( \frac{\partial \Psi_p}{\partial \mathbf{F}}(\mathbf{F}_p(\mathbf{x})) \right) (\mathbf{F}_p^n)^T \nabla w_{ip}^n.  
+$$
+
+
+This is the force acting on grid node $i$ resulting from elastic stresses of its nearby particles.
+In the case of Symplectic Euler, the force is easily written as
+
+$$
+\mathbf{f}_i^n = \mathbf{f}_i(\mathbf{x}_i^n) = -\sum_p V_p^0 \left( \frac{\partial \Psi_p}{\partial \mathbf{F}}(\mathbf{F}_p^n) \right) (\mathbf{F}_p^n)^T \nabla w_{ip}^n,
+$$
+
+which fully depends on the existing particle/grid weights and particle attributes. Alternatively, the force can also be written using the Cauchy stress,
+
+$$
+\mathbf{f}_i^n = \mathbf{f}_i(\mathbf{x}_i^n) = -\sum_p V_p^n \boldsymbol{\sigma}_p^n \nabla w_{ip}^n,  
+$$
+
+which coincides with the weak form derivation.
+
+
+
+
+
 #### MLS-MPM
 
 
